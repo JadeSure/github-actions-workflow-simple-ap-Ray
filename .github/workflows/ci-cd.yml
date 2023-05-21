@@ -86,7 +86,7 @@ jobs:
         # uses: danielr1996/envsubst-action@704434f349d6cf73fe52e977d59375ba2fb97232
         uses: danielr1996/envsubst-action@1.1.0
         env: 
-          MONGODB_URL: ${{secrets.MONGODB_URL}}
+          MONGODB_URI: ${{secrets.MONGODB_URI}}
           AZURE_CONTAINER_REGISTRY_NAME: ${{env.AZURE_CONTAINER_REGISTRY_NAME}}
           AZURE_CONTAINER_REGISTRY: ${{env.AZURE_CONTAINER_REGISTRY}}
         with:
