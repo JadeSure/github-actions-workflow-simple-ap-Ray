@@ -100,11 +100,10 @@ jobs:
       - name: Deploy to Kubernetes cluster
         uses: Azure/k8s-deploy@v4.9
         with:
-          # Path to the manifest files which will be used for deployment.
+          action: deploy
           manifests: |
             hello-world-deployment.yaml
-            ${{env.DEPLOYMENT_MANIFEST_PATH}}/hello-world-service.yaml
-          # Fully qualified resource URL of the image(s) to be used for substitutions on the manifest files Example: contosodemo.azurecr.io/helloworld:test
+            ${{ env.DEPLOYMENT_MANIFEST_PATH }}/hello-world-service.yaml
           images: |
-            ${{env.AZURE_CONTAINER_REGISTRY}}/${{env.CONTAINER_NAME}}: ${{github.sha}}
+            ${{ env.AZURE_CONTAINER_REGISTRY }}/${{ env.CONTAINER_NAME }}:${{ github.sha }}
           
